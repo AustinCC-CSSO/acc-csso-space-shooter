@@ -1,3 +1,14 @@
+# Introduction
+
+This game was built following [Jared York's tutorial](https://yorkcs.com/build-a-space-shooter-with-phaser-3/). It has been adapted to
+React and has a few code enhancements.
+
+# Gameplay Instructions
+
+Use **W, A, S, D**, to move your ship. Press **Space** to shoot. If you get hit by an enemy or laser, it's Game Over. 
+
+# create-react-app
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
