@@ -24,7 +24,7 @@ export const config = {
 
 
 export default class Game extends Component {
-    componentWillMount(){
+    componentDidMount(){
         this.props.initializeGame(new Phaser.Game(config));
     }
     render(){

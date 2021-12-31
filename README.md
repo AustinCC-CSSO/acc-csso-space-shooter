@@ -1,13 +1,21 @@
 # Introduction
 
-This game was built following [Jared York's tutorial](https://yorkcs.com/build-a-space-shooter-with-phaser-3/). It has been adapted to
+![screenshot](public/screenshot.png)
+
+This game was built following [Jared York's tutorial](https://learn.yorkcs.com/series/build-a-space-shooter-with-phaser-3/). It has been adapted to
 React and has a few code enhancements.
 
 # Gameplay Instructions
 
-Use **W, A, S, D**, to move your ship. Press **Space** to shoot. If you get hit by an enemy or laser, it's Game Over. 
+Use **W, A, S, D**, to move your ship. Press **Space** to shoot. If you get hit by an enemy or laser, it's Game Over.
 
-# create-react-app
+## TypeScript
+
+This project uses [TypeScript](https://www.typescriptlang.org/docs/). `.js` files are treated like regular JavaScript files, but `.ts` files will expect the results set in `tsconfig.json`.
+
+<hr />
+
+# Original create-react-app instructions
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
