@@ -3,7 +3,13 @@
 ![screenshot](public/screenshot.png)
 
 This game was built following [Jared York's tutorial](https://learn.yorkcs.com/series/build-a-space-shooter-with-phaser-3/). It has been adapted to
-React and has a few code enhancements.
+React and has a few code enhancements compared to the original.
+
+# New Contributors
+
+Please see [this document](https://docs.google.com/document/d/1OiGt1EkZru_Djix2HDU2Sg5G42TpuSWCag9s99sQ6Uc/edit?usp=sharing) for information
+about getting started with this project. The goal is to continue improving upon it by adding a feature or two at a time.
+You will learn a lot about modern JavaScript and the amazing [Phaser](https://phaser.io) library along the way.
 
 # Gameplay Instructions
 
