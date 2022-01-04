@@ -17,7 +17,7 @@ Use **W, A, S, D**, to move your ship. Press **Space** to shoot. If you get hit 
 
 ## TypeScript
 
-This project uses [TypeScript](https://www.typescriptlang.org/docs/). `.js` files are treated like regular JavaScript files, but `.ts` files will expect the results set in `tsconfig.json`.
+This project uses [TypeScript](https://www.typescriptlang.org/docs/). `.js` files are treated like regular JavaScript files, but `.ts` files will expect the rules set in `tsconfig.json`.
 
 <hr />
 
