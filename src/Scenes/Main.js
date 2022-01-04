@@ -15,6 +15,8 @@ export default class Main extends Phaser.Scene {
     enemies = null
     enemyLasers = null
     playerLasers = null
+    screenText = null
+    score = null
     backgrounds = []
     constructor() {
         super({ key: "Main" });
@@ -46,6 +48,8 @@ export default class Main extends Phaser.Scene {
         this.load.audio("sndExplode1", "assets/sndExplode1.wav");
         this.load.audio("sndLaser", "assets/sndLaser.wav");
 
+        // Bitmap Fonts
+        this.load.bitmapFont('scorefont', 'assets/scorefont.png', 'assets/scorefont.fnt');
     }
     create() {
         this.anims.create({
@@ -72,6 +76,17 @@ export default class Main extends Phaser.Scene {
             frameRate: 20,
             repeat: -1
         });
+
+        // Setup score
+        this.score = this.add.bitmapText(0,0, 'scorefont', 0);
+        this.score.scale = 0.7;
+
+        this.screenText = this.add.group();
+        this.screenText.add(this.score);
+        this.screenText.setDepth(1);
+
+        // Reset score
+        this.registry.set('score', null);
 
         // Setup the Sound FX library
         this.sfx = {

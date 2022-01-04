@@ -4,6 +4,8 @@ import ScrollingBackground from '../Sprites/ScrollingBackground';
 export default class GameOver extends Phaser.Scene {
     title = null
     btnRestart = null
+    screenText = null
+    score = null
     backgrounds = []
     constructor() {
         super({ key: "GameOver" });
@@ -26,6 +28,18 @@ export default class GameOver extends Phaser.Scene {
             align: 'center'
         });
         this.title.setOrigin(0.5);
+
+        // Show score if available
+        let highScore = this.registry.get('score');
+        if(!isNaN(highScore)){
+            this.score = this.add.bitmapText(0,0, 'scorefont', highScore);
+            this.score.scale = 0.7;
+
+            this.screenText = this.add.group();
+            this.screenText.add(this.score);
+            this.screenText.setDepth(1);
+        }
+
 
         for (let i = 0; i < 5; i++) {
             let keys = ["sprBg0", "sprBg1"];

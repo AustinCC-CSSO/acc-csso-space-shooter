@@ -6,4 +6,5 @@ export default class Enemy extends Entity {
         super(scene, x, y, key, type);
         this.body.velocity.y = Phaser.Math.Between(50, 100);
     }
+    score = 10
 }
