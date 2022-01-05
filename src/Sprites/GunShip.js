@@ -3,6 +3,7 @@ import EnemyLaser from './EnemyLaser';
 
 export default class GunShip extends Enemy {
     shootTimer = null
+    points = 10
     constructor(scene, x, y) {
         super(scene, x, y, "sprEnemy0", "GunShip");
         this.play("sprEnemy0");

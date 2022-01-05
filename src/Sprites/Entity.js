@@ -16,10 +16,10 @@ export default class Entity extends Phaser.GameObjects.Sprite {
             this.play("sprExplosion"); // play the animation
 
             if(canDestroy){
-                if(this.score && this.scene && this.scene.score){
+                if(this.points && this.scene && this.scene.score){
                     let currentScore = this.scene.registry.get('score');
                     currentScore = isNaN(currentScore)? 0 : currentScore;
-                    this.scene.registry.set('score', this.score + currentScore );
+                    this.scene.registry.set('score', this.points + currentScore );
                     currentScore = this.scene.registry.get('score');
 
                     this.scene.score.text = currentScore;
