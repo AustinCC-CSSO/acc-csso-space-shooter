@@ -3,6 +3,7 @@ import Phaser from 'phaser';
 
 export default class ChaserShip extends Enemy {
     state = null
+    points = 100
     constructor(scene, x, y) {
         super(scene, x, y, "sprEnemy1", "ChaserShip");
 

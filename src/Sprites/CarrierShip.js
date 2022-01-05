@@ -5,4 +5,5 @@ export default class CarrierShip extends Enemy {
         super(scene, x, y, "sprEnemy2", "CarrierShip");
         this.play("sprEnemy2");
     }
+    points = 50
 }
