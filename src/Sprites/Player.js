@@ -29,7 +29,7 @@ export default class Player extends Entity {
         this.scene.time.addEvent({ // go to game over scene
             delay: 1000,
             callback: () => {
-                this.scene.scene.start("GameOver");
+                this.scene.events.emit('gameEnd');
             },
             loop: false
         });
