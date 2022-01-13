@@ -5,6 +5,8 @@ import GunShip from '../Sprites/GunShip';
 import Player from '../Sprites/Player';
 import ScrollingBackground from '../Sprites/ScrollingBackground';
 
+export const DEFAULT_VOLUME = 0.5;
+
 export default class Main extends Phaser.Scene {
     player = null
     keyW = null
@@ -18,6 +20,7 @@ export default class Main extends Phaser.Scene {
     screenText = null
     score = null
     backgrounds = []
+    mainTheme = null
     constructor() {
         super({ key: "Main" });
     }
@@ -50,8 +53,32 @@ export default class Main extends Phaser.Scene {
 
         // Bitmap Fonts
         this.load.bitmapFont('scorefont', 'assets/scorefont.png', 'assets/scorefont.fnt');
+
+        // Music
+        this.load.audio('mainTheme', 'assets/music/mainTheme.wav');
     }
     create() {
+        // Load audio as sound
+        if(!this.sound.get('mainTheme')){
+            this.mainTheme  = this.sound.add('mainTheme');
+        } else {
+            // Restore mainTheme settings
+            this.mainTheme.setVolume(DEFAULT_VOLUME);
+        }
+
+        // Scene Events
+        this.events.on('gameStart', () => {
+            if(this.mainTheme && !this.mainTheme.isPlaying){
+                this.mainTheme.play({
+                    loop: true,
+                    volume: DEFAULT_VOLUME
+                });
+            }
+        });
+        this.events.on('gameEnd', () => {
+            this.scene.start("GameOver");
+        });
+
         this.anims.create({
             key: "sprEnemy0",
             frames: this.anims.generateFrameNumbers("sprEnemy0"),
@@ -189,6 +216,8 @@ export default class Main extends Phaser.Scene {
                 laser.destroy();
             }
         });
+
+        this.events.emit('gameStart');
     }
     update(){
         if (!this.player.getData("isDead")) {

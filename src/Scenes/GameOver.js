@@ -1,4 +1,4 @@
-import Phaser from 'phaser';
+import Phaser, {Math} from 'phaser';
 import ScrollingBackground from '../Sprites/ScrollingBackground';
 
 export default class GameOver extends Phaser.Scene {
@@ -7,6 +7,7 @@ export default class GameOver extends Phaser.Scene {
     screenText = null
     score = null
     backgrounds = []
+    mainTheme = null
     constructor() {
         super({ key: "GameOver" });
     }
@@ -15,6 +16,24 @@ export default class GameOver extends Phaser.Scene {
         this.load.image("sprBg1", "assets/sprBg1.png");
     }
     create() {
+        this.mainTheme = this.sound.get('mainTheme');
+        if(this.mainTheme){
+            let timerCallback = () => {
+                if(this.mainTheme.volume <= 0){
+                    this.mainTheme.stop();
+                    timer.remove();
+                }
+
+                this.mainTheme.setVolume(Math.MinSub(this.mainTheme.volume, 0.1, 0));
+            }
+
+            let timer = this.time.addEvent({
+                delay: 1000,
+                callback: timerCallback,
+                loop: true
+            })
+
+        }
         this.sfx = {
             btnOver: this.sound.add("sndBtnOver"),
             btnDown: this.sound.add("sndBtnDown")
